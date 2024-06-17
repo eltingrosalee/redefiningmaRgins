@@ -1,0 +1,157 @@
+---
+title: "R_Script_Lesson1"
+author: "Rosalee Elting"
+date: "2024-06-17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Welcome to coding in R! Coding is intimidating at first, but each one of you can do this! 
+
+First, we're going to explore a few functions in R. If a line of code is us telling the computer what to do, a function is a saved command we can use over and over. If we want to know what a function can do, we can type a ? before the function. 
+
+# What Functions can Do
+```{r}
+?dput
+?sapply 
+?grep
+?args
+```
+
+# A Game in R: using a function  
+```{r}
+# Number Guessing Game in R
+
+# Function to start the game
+start_game <- function() {
+  # Generate a random number between 1 and 100
+  target_number <- sample(1:100, 1)
+  
+  # Initialize the number of attempts
+  attempts <- 0
+  
+  # Print welcome message
+  cat("Welcome to the Number Guessing Game!\n")
+  cat("I have chosen a number between 1 and 100. Can you guess it?\n")
+  
+  # Loop until the user guesses the correct number
+  repeat {
+    # Prompt the user for a guess
+    guess <- as.integer(readline(prompt = "Enter your guess: "))
+    
+    # Increment the number of attempts
+    attempts <- attempts + 1
+    
+    # Check the user's guess
+    if (guess < target_number) {
+      cat("Too low! Try again.\n")
+    } else if (guess > target_number) {
+      cat("Too high! Try again.\n")
+    } else {
+      cat("Congratulations! You guessed the number in", attempts, "attempts.\n")
+      break
+    }
+  }
+}
+
+```
+
+# R as a calculator 
+
+```{r}
+x <- 374*567
+print(x)
+```
+# Make all the same changes to a data set 
+A vector with everyone's height (in inches)
+What if everyone was 10% thei size 
+```{r}
+height <- c()
+mini_height <- 
+```
+
+
+# Making a table 
+```{r}
+#ages <- sort(c(#insert our data))
+#feet <- c(#insert our data) 
+data <- 
+```
+
+# Graphing our data
+x and y: the coordinates of points to plot
+
+type : the type of graph to create; Possible values are :
+type=“p”: for points (by default)
+type=“l”: for lines
+type=“b”: for both; points are connected by a line
+type=“o”: for both ‘overplotted’;
+type=“h”: for ‘histogram’ like vertical lines
+type=“s”: for stair steps
+type=“n”: for no plotting
+
+```{r}
+plot(x=data$ages, y = data$feet, type= "o")
+```
+
+# Data in Base R 
+Link to data sets:  https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html
+
+## Warpbreaks data set 
+First let's explore the data 
+```{r}
+View(warpbreaks)
+```
+Question 1: does tension affect the number of warp breaks? 
+```{r}
+plot(x= warpbreaks$tension, y = warpbreaks$breaks)
+```
+Question from the class! 
+```{r}
+
+```
+
+## Iris data set 
+
+```{r}
+species <- as.factor(iris$Species)
+lengths <- iris$Sepal.Length
+
+plot(species, lengths)
+```
+
+# Making Graphisc more pretty 
+graph set up 
+
+```{r}
+x <- 1:100
+y <- (rnorm(100, sd = 15) + x + 100) / 10
+group <- c(rep("A", 50), rep("B", 50))
+
+```
+
+A base R plot 
+```{r}
+plot(x,y)
+```
+
+![Colors to choose from](r_colors.png)
+
+A prettier plot in Base R 
+```{r}
+k_purple <- "#875692"
+k_orange <- "#F38400"
+colors <- c(A = k_purple, B = k_orange)
+
+
+plot (x, y, 
+      bty = "n", # remove box
+      pch = 20,
+      cex = 1.4,
+      col = colors[group]
+      )
+```
+

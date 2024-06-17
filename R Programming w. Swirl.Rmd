@@ -1,0 +1,36 @@
+---
+title: "R Programming w. Swirl"
+author: "Rosalee Elting"
+date: "2024-03-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Introduce a R markdown file. 
+
+Install swirl 
+we only have to do this once per computer 
+```{r}
+install.packages("swirl")
+```
+
+Run Swirl 
+```{r}
+library("swirl")
+swirl()
+```
+
+Install a course 
+This actually is prompted by Swirl, don't need here. 
+```{r}
+install_course_github("swirldev", "R_Programming_E")
+```
+
+Start learning 
+```{r}
+swirl()
+```
+

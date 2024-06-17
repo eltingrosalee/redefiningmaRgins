@@ -1,0 +1,43 @@
+---
+title: "Willamette Hg Levels"
+author: "Rosalee Elting"
+date: "2024-03-22"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load Libraries 
+```{r}
+library(tidyverse)
+```
+
+## Load Data 
+```{r}
+bird_mercury <- read.csv("will_Hg_Birds.csv")
+bug_mercury <- read.csv("will_Hg_bugs.csv")
+```
+
+```{r}
+bird_mercury %>%
+  ggplot(aes(x = SPECIES.CODE, y = BLOOD.THG.NG.G.DW)) + 
+  geom_boxplot()+ 
+  geom_point()
+```
+
+```{r}
+bug_mercury %>% 
+  ggplot(aes(x = TROPHIC.GROUP, y= WHOLE.BODY.COMPOSITE.MEHG.NG.G.DW))+ 
+  geom_boxplot() + 
+  geom_point()
+```
+
+```{r}
+bug_mercury %>% 
+  ggplot(aes(x = LIFE.STAGE, y= WHOLE.BODY.COMPOSITE.MEHG.NG.G.DW))+ 
+  geom_boxplot() + 
+  geom_point()
+```
+
